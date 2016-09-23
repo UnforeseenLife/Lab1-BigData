@@ -1,0 +1,24 @@
+#File Reading
+#Emma Anderson, Big Data, 9/7/16
+#open and save the file for reading
+data_file = open("FreBridge1.csv", "r");
+#create an empty list to store the data
+data_list = [];
+#put all lines from the file into a list
+for ii in data_file:
+    data_list.append(ii);
+
+#remove the first element (column header)
+del data_list[0];
+#create empty lists for westbound and eastbound bikes
+west = [];
+east = [];    
+for jj in range(len(data_list)):
+    #make into a list of lists of just numbers
+    data_list[jj] = data_list[jj].split(",");
+    #add data to specific lists for west and east
+    west.append(int(data_list[jj][1]));
+    east.append(int(data_list[jj][2]));
+
+print(west);
+print(east)
